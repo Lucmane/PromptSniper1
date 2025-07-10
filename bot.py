@@ -127,12 +127,12 @@ async def handle_other(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # ============ MAIN ============
 def main():
     app = Application.builder().token(TELEGRAM_TOKEN).build()
-
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CallbackQueryHandler(check_subscription))
     app.add_handler(MessageHandler(filters.PHOTO, handle_image))
     app.add_handler(MessageHandler(~filters.PHOTO, handle_other))
-
     logger.info("🤖 PromptSniper is live and hunting...")
+    app.run_polling()
 
-    app.run_polling()  # NE PAS appeler Updater ici ! C’est maintenant intégré dans Application
+if __name__ == "__main__":
+    main()
