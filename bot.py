@@ -56,17 +56,17 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     reply_markup = InlineKeyboardMarkup(keyboard)
 
     await update.message.reply_text(
-        "👋 Yo dev sniper, bienvenue sur *PromptSniper*
+    """👋 Yo dev sniper, bienvenue sur *PromptSniper*
 
 🚧 Avant de générer des prompts d’élite, tu dois rejoindre notre QG :
 👉 [CTRL+FUTURE](https://t.me/ctrl_future) — *le canal où on construit le futur (IA, dev, automation & délire tech)*
 
 🎁 Tu y découvriras des outils, bots, API secrètes et projets exclusifs.
 
-Une fois que c’est fait, clique sur le bouton ci-dessous :",
-        reply_markup=reply_markup,
-        parse_mode='Markdown'
-    )
+Une fois que c’est fait, clique sur le bouton ci-dessous :""",
+    reply_markup=reply_markup,
+    parse_mode='Markdown'
+)
 
 async def check_subscription(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
