@@ -19,7 +19,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # ============ CONFIG ============
-TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
+TELEGRAM_TOKEN = "7853973479:AAFH_1G40ULASUznLAOOglJCd0zyg5xPnd8"
 CLIP_API_URL = "https://pharmapsychotic-clip-interrogator.hf.space/"
 CLIP_MODEL = "ViT-L (best for Stable Diffusion 1.*)"
 CLIP_MODE = "best"
