@@ -15,10 +15,11 @@ from telegram.ext import (
 from gradio_client import Client
 from dotenv import load_dotenv
 
+# Charger les variables d'environnement (.env ou Render Dashboard)
 load_dotenv()
 
 # ============ CONFIG ============
-TELEGRAM_TOKEN = os.getenv("7853973479:AAFH_1G40ULASUznLAOOglJCd0zyg5xPnd8")
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
 CLIP_API_URL = "https://pharmapsychotic-clip-interrogator.hf.space/"
 CLIP_MODEL = "ViT-L (best for Stable Diffusion 1.*)"
 CLIP_MODE = "best"
@@ -56,17 +57,14 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     reply_markup = InlineKeyboardMarkup(keyboard)
 
     await update.message.reply_text(
-    """👋 Yo dev sniper, bienvenue sur *PromptSniper*
-
-🚧 Avant de générer des prompts d’élite, tu dois rejoindre notre QG :
-👉 [CTRL+FUTURE](https://t.me/ctrl_future) — *le canal où on construit le futur (IA, dev, automation & délire tech)*
-
-🎁 Tu y découvriras des outils, bots, API secrètes et projets exclusifs.
-
-Une fois que c’est fait, clique sur le bouton ci-dessous :""",
-    reply_markup=reply_markup,
-    parse_mode='Markdown'
-)
+        "👋 Yo dev sniper, bienvenue sur *PromptSniper*\n\n"
+        "🚧 Avant de générer des prompts d’élite, tu dois rejoindre notre QG :\n"
+        "👉 [CTRL+FUTURE](https://t.me/ctrl_future) — *le canal où on construit le futur (IA, dev, automation & délire tech)*\n\n"
+        "🎁 Tu y découvriras des outils, bots, API secrètes et projets exclusifs.\n\n"
+        "Une fois que c’est fait, clique sur le bouton ci-dessous :",
+        reply_markup=reply_markup,
+        parse_mode='Markdown'
+    )
 
 async def check_subscription(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
@@ -106,23 +104,13 @@ async def handle_image(update: Update, context: ContextTypes.DEFAULT_TYPE):
         flavor = detailed_result[4]
 
         reply_text = (
-            f"🎯 *PromptSniper a tiré :*
-
-"
-            f"`{prompt}`
-
-"
-            f"🧠 *Résumé artistique :*
-"
-            f"• 🎨 Style : {style}
-"
-            f"• 👨‍🎨 Artiste : {artist}
-"
-            f"• 📈 Tendance : {trending}
-"
-            f"• 🍭 Ambiance : {flavor}
-
-"
+            f"🎯 *PromptSniper a tiré :*\n\n"
+            f"`{prompt}`\n\n"
+            f"🧠 *Résumé artistique :*\n"
+            f"• 🎨 Style : {style}\n"
+            f"• 👨‍🎨 Artiste : {artist}\n"
+            f"• 📈 Tendance : {trending}\n"
+            f"• 🍭 Ambiance : {flavor}\n\n"
             f"_Powered by PromptSniper x CTRL+FUTURE_ 🔫"
         )
 
